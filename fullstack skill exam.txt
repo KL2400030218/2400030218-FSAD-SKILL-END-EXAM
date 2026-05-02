@@ -44,7 +44,6 @@
  </session-factory>
 </hibernate-configuration>
 */
-
 // Ticket Entity Class
 package com.klef.fsad.exam;
 
@@ -92,7 +91,6 @@ public class ClientDemo {
         Session session = sf.openSession();
         Transaction tx = session.beginTransaction();
 
-        // I. Insert Record
         Ticket t = new Ticket();
         t.setName("Issue A");
         t.setDate(new Date());
