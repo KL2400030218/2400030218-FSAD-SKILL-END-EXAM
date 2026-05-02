@@ -1,8 +1,4 @@
-// Package: com.klef.fsad.exam
-// Database: fsadendexam
 
-// ---------- pom.xml (Maven Dependencies) ----------
-/*
 <project xmlns="http://maven.apache.org/POM/4.0.0">
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.klef.fsad</groupId>
@@ -31,7 +27,7 @@
 </project>
 */
 
-// ---------- hibernate.cfg.xml ----------
+// hibernate.cfg.xml 
 /*
 <hibernate-configuration>
  <session-factory>
@@ -49,7 +45,7 @@
 </hibernate-configuration>
 */
 
-// ---------- Ticket Entity Class ----------
+// Ticket Entity Class
 package com.klef.fsad.exam;
 
 import javax.persistence.*;
@@ -70,7 +66,6 @@ class Ticket {
 
     private String status;
 
-    // Getters and Setters
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
 
@@ -84,7 +79,7 @@ class Ticket {
     public void setStatus(String status) { this.status = status; }
 }
 
-// ---------- ClientDemo Class ----------
+//ClientDemo Class
 import org.hibernate.*;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.query.Query;
@@ -102,10 +97,7 @@ public class ClientDemo {
         t.setName("Issue A");
         t.setDate(new Date());
         t.setStatus("Open");
-
         session.save(t);
-
-        // II. Update using HQL with positional parameters
         String hql = "update Ticket set name=?1, status=?2 where id=?3";
         Query query = session.createQuery(hql);
         query.setParameter(1, "Updated Issue");
